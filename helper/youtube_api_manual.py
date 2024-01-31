@@ -43,6 +43,9 @@ playlists = youtube.playlists().list(channelId=channel_id,
 for playlist in playlists['items']:
     print(playlist)
     print()
+for playlist in playlists['items']:
+    print(playlist)
+    print()
 
 
 '''
