@@ -48,3 +48,49 @@ class Channel:
         data = json.dumps(self.channel)
         with open (file_name, 'w', encoding='UTF-8') as file_json:
             file_json.write(data)
+
+    def __str__(self):
+        name = self.channel['items'][0]['snippet']["title"]
+        url = self.channel['items'][0]['snippet']['thumbnails']['default']['url']
+        return f"{name} ({url})"
+
+    def __add__(self, other):
+        subscribercount_self = self.channel['items'][0]['statistics']['subscriberCount']
+        subscribercount_other = other.channel['items'][0]['statistics']['subscriberCount']
+        return int(subscribercount_self) + int(subscribercount_other)
+
+    def __sub__(self, other):
+        subscribercount_self = self.channel['items'][0]['statistics']['subscriberCount']
+        subscribercount_other = other.channel['items'][0]['statistics']['subscriberCount']
+        return int(subscribercount_self) - int(subscribercount_other)
+
+    def __gt__(self, other):
+        subscribercount_self = self.channel['items'][0]['statistics']['subscriberCount']
+        subscribercount_other = other.channel['items'][0]['statistics']['subscriberCount']
+        return int(subscribercount_self) > int(subscribercount_other)
+
+    def __ge__(self, other):
+        subscribercount_self = self.channel['items'][0]['statistics']['subscriberCount']
+        subscribercount_other = other.channel['items'][0]['statistics']['subscriberCount']
+        return int(subscribercount_self) >= int(subscribercount_other)
+
+    def __lt__(self, other):
+        subscribercount_self = self.channel['items'][0]['statistics']['subscriberCount']
+        subscribercount_other = other.channel['items'][0]['statistics']['subscriberCount']
+        return int(subscribercount_self) < int(subscribercount_other)
+
+    def __le__(self, other):
+        subscribercount_self = self.channel['items'][0]['statistics']['subscriberCount']
+        subscribercount_other = other.channel['items'][0]['statistics']['subscriberCount']
+        return int(subscribercount_self) <= int(subscribercount_other)
+
+    def __cmp__(self, other):
+        subscribercount_self = self.channel['items'][0]['statistics']['subscriberCount']
+        subscribercount_other = other.channel['items'][0]['statistics']['subscriberCount']
+        return int(subscribercount_self) == int(subscribercount_other)
+
+
+
+
+
+
